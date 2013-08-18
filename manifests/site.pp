@@ -88,4 +88,25 @@ node default {
     ensure => link,
     target => $boxen::config::repodir
   }
+
+  include php::5_4
+  include mysql
+  include skype
+  include virtualbox
+  include vagrant
+
+  vagrant::box {'precise64/virtualbox':
+    source => 'http://puppet-vagrant-boxes.puppetlabs.com/ubuntu-server-12042-x64-vbox4210.box'
+  }
+
+  include sublime_text_2
+  include vlc
+  include iterm2::stable
+  include mou
+  include caffeine
+
+  package { "reattach-to-user-namespace": }
+
+  include tmux
+  
 }
