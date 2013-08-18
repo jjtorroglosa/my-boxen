@@ -104,6 +104,7 @@ node default {
   include iterm2::stable
   include mou
   include caffeine
+  include unarchiver
 
   package { "reattach-to-user-namespace": }
 

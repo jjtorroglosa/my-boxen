@@ -51,6 +51,7 @@ github "iterm2", 	     "1.0.3"
 github "mou", 			 "1.1.3"
 github "caffeine",		 "1.0.0"
 github "tmux",			 "1.0.2"
+github "unarchiver",     "1.1.0", :repo => "dieterdemeyer/puppet-unarchiver"
 
 # Optional/custom modules. There are tons available at
 # https://github.com/boxen.
