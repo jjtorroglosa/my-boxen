@@ -109,5 +109,6 @@ node default {
   package { "reattach-to-user-namespace": }
 
   include tmux
+  package { "colordiff": }
   
 }
