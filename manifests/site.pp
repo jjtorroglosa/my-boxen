@@ -100,6 +100,11 @@ node default {
   }
 
   include sublime_text_2
+
+  sublime_text_2::package {'Puppet':
+    source => 'eklein/sublime-text-puppet'
+  }
+
   include vlc
   include iterm2::stable
   include mou
@@ -107,7 +112,11 @@ node default {
   include unarchiver
 
   package { "reattach-to-user-namespace": }
-
+  package { "coreutils": }
   include tmux
+  include autojump
+  include chrome
+  include jumpcut
+  include sizeup
   
 }
