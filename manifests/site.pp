@@ -84,39 +84,8 @@ node default {
     ]:
   }
 
-  file { "${boxen::config::srcdir}/our-boxen":
+  file { "${boxen::config::srcdir}/my-boxen":
     ensure => link,
     target => $boxen::config::repodir
   }
-
-  include php::5_4
-  include mysql
-  include skype
-  include virtualbox
-  include vagrant
-
-  vagrant::box {'precise64/virtualbox':
-    source => 'http://puppet-vagrant-boxes.puppetlabs.com/ubuntu-server-12042-x64-vbox4210.box'
-  }
-
-  include sublime_text_2
-
-  sublime_text_2::package {'Puppet':
-    source => 'eklein/sublime-text-puppet'
-  }
-
-  include vlc
-  include iterm2::stable
-  include mou
-  include caffeine
-  include unarchiver
-
-  package { "reattach-to-user-namespace": }
-  package { "coreutils": }
-  include tmux
-  include autojump
-  include chrome
-  include jumpcut
-  include sizeup
-  
 }
