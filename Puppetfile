@@ -60,6 +60,7 @@ github "osx",            "1.6.0"
 github "zsh",            "1.0.0"
 github "phpstorm",       "1.0.3"
 github "intellij",       "1.3.0"
+github "firefox",        "1.1.3"
 
 github "cocoapods",      "1.0.0", :repo => "jjtorroglosa/puppet-cocoapods"
 # Optional/custom modules. There are tons available at

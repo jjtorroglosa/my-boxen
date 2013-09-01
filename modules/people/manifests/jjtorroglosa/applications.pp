@@ -1,6 +1,7 @@
 class people::jjtorroglosa::applications {
   notice("Installing applications...")
   include chrome
+  include firefox
   include vlc
   include iterm2::stable
   include skype
