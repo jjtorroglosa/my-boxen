@@ -10,6 +10,9 @@ class people::jjtorroglosa::development {
   class { 'php::global':
     version => '5.4.10'
   }
+  php::extension::xdebug{ "xdebug for 5.4.10":
+    php => '5.4.10'
+  }
 
   include mysql
   include virtualbox
