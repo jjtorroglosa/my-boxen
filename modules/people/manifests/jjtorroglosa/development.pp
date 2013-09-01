@@ -7,6 +7,10 @@ class people::jjtorroglosa::development {
 
   include cocoapods
   include php::5_4
+  class { 'php::global':
+    version => '5.4.10'
+  }
+
   include mysql
   include virtualbox
   
