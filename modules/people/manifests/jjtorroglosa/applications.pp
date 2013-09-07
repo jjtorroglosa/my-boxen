@@ -30,4 +30,8 @@ class people::jjtorroglosa::applications {
   }
   include caffeine
   include unarchiver
+
+  class { 'tunnelblick':
+    ensure => 'absent'
+  }
 }
