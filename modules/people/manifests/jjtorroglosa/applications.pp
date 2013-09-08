@@ -30,4 +30,6 @@ class people::jjtorroglosa::applications {
   }
   include caffeine
   include unarchiver
+
+  include evernote
 }
