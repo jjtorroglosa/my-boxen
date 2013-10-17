@@ -1,0 +1,49 @@
+# Example template for PHP-FPM based projects
+#
+# The template which nginx uses within a boxen::project can be overridden
+# to a specific template such as this one.
+#
+# You will likely need to change both the root and SCRIPT_FILENAME parameters below
+# to match your setup
+#
+server {
+  access_log <%= scope.lookupvar "nginx::config::logdir" %>/<%= @name %>.access.log main;
+  listen 80;
+  root <%= @repo_dir %>;
+  server_name <%= @server_name %>;
+  index index.php;
+
+  client_max_body_size 50M;
+
+  error_page 500 502 503 504 /50x.html;
+  
+  location = /favicon.ico {
+     log_not_found off;
+     access_log off;
+  }
+
+  location = /robots.txt {
+    allow all;
+    log_not_found off;
+    access_log off;
+  }
+  
+  location / {
+    try_files $uri $uri/ /index.php?$args;
+  }
+
+  location ~ \.php {
+    include <%= scope.lookupvar "nginx::config::configdir" %>/fastcgi_params;
+    fastcgi_pass unix:<%= scope.lookupvar "boxen::config::socketdir" %>/<%= @name %>;
+    fastcgi_intercept_errors on;
+    #fastcgi_index index.php;
+    #fastcgi_param SCRIPT_FILENAME <%= @repo_dir %>/index.php;
+    #fastcgi_param PATH_INFO $fastcgi_script_name;
+
+  }
+  
+  location ~* \.(js|css|png|jpg|jpeg|gif|ico)$ {
+                expires max;
+                log_not_found off;
+        }
+}

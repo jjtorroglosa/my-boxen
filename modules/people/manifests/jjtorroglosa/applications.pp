@@ -32,4 +32,8 @@ class people::jjtorroglosa::applications {
   include unarchiver
 
   include evernote
+
+  include tunnelblick
+  include alfred
+  include spotify
 }

@@ -27,4 +27,6 @@ class people::jjtorroglosa::development {
   include phpstorm
 
   include mou
+  include sequel_pro
+  include mercurial
 }
