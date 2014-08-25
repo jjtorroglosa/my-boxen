@@ -1,17 +1,24 @@
 class people::jjtorroglosa::development {
   notice("Installing development apps...")
+  $php_version = '5.4.29'
   include sublime_text_2
   sublime_text_2::package {'Puppet':
     source => 'eklein/sublime-text-puppet'
   }
 
   include cocoapods
-  include php::5_4
+  include php::5_4_29
   class { 'php::global':
-    version => '5.4.10'
+    version => $php_version
   }
-  php::extension::xdebug{ "xdebug for 5.4.10":
-    php => '5.4.10'
+  php::extension::xdebug{ "xdebug for ${php_version}":
+    php => $php_version
+  }
+  php::extension::mcrypt{ "mcrypt for ${php_version}":
+    php => $php_version
+  }
+  php::extension::intl{ "intl for ${php_version}":
+    php => $php_version
   }
 
   include mysql
@@ -29,4 +36,14 @@ class people::jjtorroglosa::development {
   include mou
   include sequel_pro
   include mercurial
+
+  class { 'hub':
+    ensure => 'absent'
+  }
+
+  include nodejs::v0_10
+  
+  class {'java':
+    update_version => '51'
+  }
 }
